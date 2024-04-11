@@ -1,0 +1,80 @@
+<section class="pb-4 pt-4">
+    <div class="mb-2 align-items-center">
+        <h1>SHARE A NEW RECIPE</h1>
+        <p>Came up with a new recipe that you're so thrilled to share with the world? You're in the right spot!</p>
+    </div>
+    <div class="row justify-content-center">
+    <div class="col-8 mt-5">
+
+        <form action="/recipe/post-new-recipe" enctype="multipart/form-data" method="POST">
+        
+          <div class="row g-3">
+    
+            <div class="col-12">
+              <label for="name" class="form-label">Recipe Name</label>
+              <input type="text" name="name" id="name" class="form-control" required>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <label for="servings" class="form-label">Servings</label>
+                    <input type="number" name="servings" id="servings" class="form-control" required>
+                </div>
+                <div class="col-6">
+                    <label for="cookingTime" class="form-label">Total Time</label><small class="text-muted"> (minutes)</small>
+                    <input type="number" name="cookingTime" id="cookingTime" class="form-control" required>
+                </div>
+            </div>
+            
+            <div class="col-12">
+              <label for="summary" class="form-label">Summary</label>
+              <textarea name="summary" id="summary" class="form-control" cols="30" rows="4"></textarea>
+            </div>
+    
+            <div class="col-12">
+              <label for="name" class="form-label">Ingredients</label><br>
+              <small class="text-muted">Add a new ingredient into each box.<br>Example: 2 cups flour</small>
+              <div class="ingredientList">
+                <div class="ingredientDiv mb-1">
+                  <input type="text" name="ingredients" class="form-control">
+                </div>
+              </div>
+            </div>
+    
+            <div class="col-12">
+              <button type="button" class="btn btn-outline-info" id="addIngredientsBtn">+</button>
+            </div>
+    
+            <div class="col-12">
+                <label for="instructions" class="form-label">Instructions</label><br>
+                <small class="text-muted">Type ENTER after each step.</small>
+                <textarea name="instructions" id="instructions" class="form-control" cols="30" rows="4"></textarea>
+              </div>
+              
+            <!-- mine
+            <div class="col-12">
+              <label for="image">Product Image</label>
+              <input type="file" class="form-control" name="image" accept="image/*">
+            </div> -->
+
+            
+            <div class="col-12">
+                <label for="imgUpload" class="form-label">Image</label>
+                <input type="file" class="form-control" id="imageUpload" name="file">
+              </div>
+
+            <!-- <div class="col-12">
+              <label for="createdBy" class="form-label">🖤 Made With Love By</label>
+              <input placeholder="Your Name" name="createdBy" id="createdBy" class="form-control" required>
+            </div> -->
+    
+            <div class="col-12">
+              <button type="submit" class="btn btn-info">Submit Recipe</button>
+            </div>
+    
+          </div>
+        
+        </form>
+    </div>
+  </div>
+</section>

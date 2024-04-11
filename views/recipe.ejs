@@ -1,0 +1,66 @@
+
+
+<% if (recipe != null) { %>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb pt-3">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page"><%- recipe.name %></li>
+    </ol>
+  </nav>
+
+<div class="row">
+<div class="col-12 col-md-5">
+  <div class="row">
+      <h1 class="mt-5 pt-5 text-center"><%= recipe.name.toUpperCase() %></h1>
+      <!-- ADD WHEN YOU DO USER LOGIN -->
+      <p class="text-center">by <%= recipe.user %></p>
+      <!-- <p class="text-center">by Amy Lam</p> -->
+      <div class="info row text-center d-flex justify-content-center">
+          <div class="info-box col-12 col-md-3">
+              <h5>Servings</h5>
+              <h4><%= recipe.servings %></h4>
+          </div>
+              
+          <div class="info-box col-12 col-md-3">
+              <h5>Time</h5>
+              <h4><%= recipe.cookingTime %> mins</h4>
+          </div>
+      </div>
+      <div class="col mt-5 pt-5 m-4">
+          <h2 class="row">SUMMARY</h2>
+          <p class="row"><%- recipe.summary %></p>
+      </div>
+  
+  </div>
+</div>
+
+<div class="col-12 col-md-7">
+  <img src="<%- recipe.image %>" class="img-fluid sticky-top shadow-lg mb-5 bg-white rounded" alt="<%- recipe.name %>" loading="lazy"/>
+</div>
+</div>
+
+<div class="row mt-2 d-flex justify-content-around">
+<div class="col-5" style="white-space: pre-line;">
+  <h2 class="mb-2">INGREDIENTS</h2>
+  <ul class="list-group list-group-flush">
+      <% recipe.ingredients.forEach(function(ingredients, index){ %>
+        <li class="list-group-item"><%= ingredients %></li>
+      <% }) %>
+  </ul> 
+</div>
+<div class="col-5" style="white-space: pre-line;"> 
+  <h2 class="mb-2">INSTRUCTIONS</h2>
+  <%- recipe.instructions %>
+</div>
+</div>
+<% } else { %>
+<p>No item found.</p>
+<% } %>
+
+<%if(post.user == user.id){ %>
+<div class="delete-btn">
+  <form action="/recipe/deleteRecipe/<%= recipe.id %>?_method=DELETE" method="POST">
+    <button type="submit"><i class="bi bi-trash border p-2 rounded"> Delete Recipe</i></button>
+  </form>
+</div>
+<% } %>

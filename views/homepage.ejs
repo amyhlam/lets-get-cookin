@@ -1,0 +1,44 @@
+<section>
+  <div class="container my-5">
+      <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-4 border shadow-lg">
+        <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+          <h1 class="title display-4 fw-bold lh-1">LET'S GET COOKIN'</h1>
+          <p class="lead">Discover your next all time favorite dish through our abundant selection of recipes shared from people all over the world - including hearty protein-packed breakfasts, quick and easy lunches, delectable dinners, vegan-friendly meals, drool worthy desserts, and everything in between. </p>
+          <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
+            <a href="/recipe/all-recipes" class="btn btn-info btn-lg px-4 me-md-2 fw-bold text-white">Explore All Recipes</a>
+            <a href="/recipe/create-recipe" class="share-new-btn btn btn-outline-info btn-lg px-4">Share A New Recipe</a>
+          </div>
+        </div>
+        <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
+            <img class="rounded-lg-3" src="/imgs/hero-image1.jpg" alt="" width="720">
+        </div> 
+      </div>
+  </div>
+  
+  
+      <!-- Recent Recipes Start -->
+      <div class="pb-4 pt-4">
+          <div class="d-flex mb-2 align-items-center">
+              <h2>Recent Recipes</h2>
+          </div>
+  
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 g-2 g-lg-3">
+              <% if (food != '') { %>
+                  <% food.recentRecipes.forEach(function(recipe, index){ %>
+              <a href="/recipe/<%= recipe._id %>" class="col text-center recipe__link">
+                  <div class="recipe__img shadow">
+                      <img src="/img/<%= recipe.image %>" alt="<%= recipe.name %>" loading="lazy">
+                  </div>
+                  <div class="pt-1"><%= recipe.name %></div>
+              </a>
+                  <% }) %>
+              <% } else { %>
+                  <p>No items found.</p>
+              <% } %>
+          </div>
+      </div>
+      <!-- Recent Recipes End -->
+  
+  </section>
+  
+  

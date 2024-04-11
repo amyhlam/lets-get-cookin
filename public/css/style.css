@@ -1,0 +1,130 @@
+/* body {
+    background-color: black;
+    color: white;
+}
+
+.btn {
+    background-color: rgba(128, 128, 128, 0.504);
+    border: none;
+}
+
+.profile-top {
+    border: 2px solid red;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.profile-posts {
+    border: 2px solid blue;
+    max-width: 90%;
+}
+
+
+.post-container {
+    display: block;
+
+}
+
+.post-container img {
+    display: block;
+    border: 2px solid blue;
+}
+
+.post-container .caption {
+    border: 2px solid green;
+    display: block;
+}
+
+.post-comments {
+    border: 2px solid red;
+} */
+
+
+
+
+:root {
+    --bs-font-sans-serif: 'Montserrat', sans-serif;
+}
+
+.container-xxl {
+    max-width: 1130px;
+}
+
+body {
+    background-image: url('/imgs/background1.jpg');
+    background-size: cover;
+}
+
+a { color: var(--bs-dark); }
+
+/* homepage */
+
+.title {
+  color: rgb(39, 68, 123);
+  font-size: 5.5rem;
+}
+
+.share-new-btn {
+  --bs-btn-hover-color: white;
+  font-weight: bold;
+}
+
+.recipe__link {
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    transition: 250ms all;
+  }
+  
+  .recipe__link:hover {
+    transform: scale(1.05);
+    opacity: 0.7;
+  }
+  
+  .recipe__img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 230px;
+    margin-bottom: 10px;
+    box-shadow: 0px 3px 6px rgba(0,0,0,.16);
+    overflow: hidden;
+    border-radius: 8px;
+  }
+
+  .recipe__img img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  /* recipe */
+  .info {
+    margin: 0;
+  }
+
+  .info h5 {
+    font-size: 1rem;
+  }
+
+  .info-box {
+    border: 1px solid rgba(0, 0, 0, 0.442);
+    margin: 0 1rem;
+    padding: 0;
+  }
+
+  .delete-btn {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2rem;
+  }
+
+  /* search */
+
+  .search-term {
+    color: #0dcaf0af;
+    text-decoration: underline;
+  }
