@@ -6,7 +6,8 @@
           <p class="lead">Discover your next all time favorite dish through our abundant selection of recipes shared from people all over the world - including hearty protein-packed breakfasts, quick and easy lunches, delectable dinners, vegan-friendly meals, drool worthy desserts, and everything in between. </p>
           <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
             <a href="/recipe/all-recipes" class="btn btn-info btn-lg px-4 me-md-2 fw-bold text-white">Explore All Recipes</a>
-            <a href="/recipe/create-recipe" class="share-new-btn btn btn-outline-info btn-lg px-4">Share A New Recipe</a>
+            <!-- <a href="/recipe/create-recipe" class="share-new-btn btn btn-outline-info btn-lg px-4">Share A New Recipe</a> -->
+            <a href="/create-recipe" class="share-new-btn btn btn-outline-info btn-lg px-4">Share A New Recipe</a>
           </div>
         </div>
         <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
@@ -27,7 +28,7 @@
                   <% food.recentRecipes.forEach(function(recipe, index){ %>
               <a href="/recipe/<%= recipe._id %>" class="col text-center recipe__link">
                   <div class="recipe__img shadow">
-                      <img src="/img/<%= recipe.image %>" alt="<%= recipe.name %>" loading="lazy">
+                      <img src="<%= recipe.image %>" alt="<%= recipe.name %>" loading="lazy">
                   </div>
                   <div class="pt-1"><%= recipe.name %></div>
               </a>

@@ -11,11 +11,8 @@
 <div class="row">
 <div class="col-12 col-md-5">
   <div class="row">
-      <h1 class="mt-5 pt-5 text-center"><%= recipe.name.toUpperCase() %></h1>
-      <!-- ADD WHEN YOU DO USER LOGIN -->
-      <p class="text-center">by <%= recipe.user %></p>
-      <!-- <p class="text-center">by Amy Lam</p> -->
-      <div class="info row text-center d-flex justify-content-center">
+      <h1 class="recipe-name mt-5 pt-5 text-center"><%= recipe.name.toUpperCase() %></h1>
+      <div class="info row text-center d-flex justify-content-center mt-5">
           <div class="info-box col-12 col-md-3">
               <h5>Servings</h5>
               <h4><%= recipe.servings %></h4>
@@ -57,10 +54,10 @@
 <p>No item found.</p>
 <% } %>
 
-<%if(post.user == user.id){ %>
+<%if(recipe.user == user){ %>
 <div class="delete-btn">
   <form action="/recipe/deleteRecipe/<%= recipe.id %>?_method=DELETE" method="POST">
-    <button type="submit"><i class="bi bi-trash border p-2 rounded"> Delete Recipe</i></button>
+    <button class="btn btn-outline-secondary" type="submit"><i class="bi bi-trash"> Delete Recipe</i></button>
   </form>
 </div>
 <% } %>

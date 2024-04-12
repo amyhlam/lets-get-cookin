@@ -13,7 +13,7 @@ router.get('/all-recipes', ensureAuth, recipeController.getAllRecipes);
 router.get('/:id', ensureAuth, recipeController.getRecipe);
 
 // GET create recipe page
-router.get('/create-recipe', recipeController.getCreateRecipePage);
+// router.get('/create-recipe', recipeController.getCreateRecipePage);
 
 // POST new recipe
 router.post('/post-new-recipe', upload.single("file"), recipeController.postNewRecipe);

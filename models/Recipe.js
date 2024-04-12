@@ -31,11 +31,11 @@ const RecipeSchema = new mongoose.Schema({
     },
     image: {
       type: String,
-      require: true,
+      required: true,
     },
     cloudinaryId: {
       type: String,
-      require: true,
+      required: true,
     },
     user: {
       type: mongoose.Schema.Types.ObjectId,
@@ -43,6 +43,6 @@ const RecipeSchema = new mongoose.Schema({
     },
 });
 
-RecipeSchema.index({ name: 'text', summary: 'text', user: 'text' })
+// RecipeSchema.index({ name: 'text', summary: 'text' })
 
 module.exports = mongoose.model("Recipe", RecipeSchema)

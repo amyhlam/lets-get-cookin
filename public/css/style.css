@@ -1,57 +1,13 @@
-/* body {
-    background-color: black;
-    color: white;
+* {
+  box-sizing: border-box;
 }
-
-.btn {
-    background-color: rgba(128, 128, 128, 0.504);
-    border: none;
-}
-
-.profile-top {
-    border: 2px solid red;
-}
-
-.column {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.profile-posts {
-    border: 2px solid blue;
-    max-width: 90%;
-}
-
-
-.post-container {
-    display: block;
-
-}
-
-.post-container img {
-    display: block;
-    border: 2px solid blue;
-}
-
-.post-container .caption {
-    border: 2px solid green;
-    display: block;
-}
-
-.post-comments {
-    border: 2px solid red;
-} */
-
-
-
 
 :root {
     --bs-font-sans-serif: 'Montserrat', sans-serif;
 }
 
 .container-xxl {
-    max-width: 1130px;
+    max-width: 1250px;
 }
 
 body {
@@ -60,6 +16,13 @@ body {
 }
 
 a { color: var(--bs-dark); }
+
+.title-login {
+  color: rgb(39, 68, 123);
+  font-size: 3rem;
+}
+
+
 
 /* homepage */
 
@@ -102,6 +65,10 @@ a { color: var(--bs-dark); }
   }
 
   /* recipe */
+  .recipe-name {
+    font-size: 4.25rem;
+  }
+
   .info {
     margin: 0;
   }
@@ -128,3 +95,15 @@ a { color: var(--bs-dark); }
     color: #0dcaf0af;
     text-decoration: underline;
   }
+
+  /* all recipes page */
+  /* .userName-span {
+    font-size: smaller;
+    color: rgb(160, 160, 160);
+  } */
+
+/* @media (min-width: 1100px) {
+  .recipe-name {
+    font-size: 5.25rem;
+  }
+} */

@@ -1,5 +1,6 @@
 const cloudinary = require("../middleware/cloudinary");
 const Recipe = require("../models/Recipe");
+const User = require("../models/User")
 const Comment = require("../models/Comment")
 
 module.exports = {
@@ -25,6 +26,8 @@ module.exports = {
   getAllRecipes: async (req, res) => {
     try {
         let name = req.body.name;
+        // let recipeUserId = req.body.user;
+        // let user = await User.findOne({recipeUserId})
         const recipe = await Recipe.find({}).sort({name: 1});
 
         res.render('all-recipes', { title: `Let's Get Cookin' - All Recipes`, recipe });
@@ -34,16 +37,17 @@ module.exports = {
   },
   getRecipe: async (req, res) => {
     try {
-        let recipeId = req.params.id;
-        const recipe = await Recipe.findById(recipeId);
-        res.render('recipe', { title: `Let's Get Cookin' - ${recipe.name}`, recipe });
+      let user = req.user.id;
+      let recipeId = req.params.id;
+      const recipe = await Recipe.findById(recipeId);
+      res.render('recipe', { title: `Let's Get Cookin' - ${recipe.name}`, recipe, user });
     } catch (error) {
         console.log(error);
     }
   },
   getCreateRecipePage: async (req, res) => {
     try {
-        res.render('create-recipe.ejs', { title: `Let's Get Cookin' - Create A New Recipe` });
+        res.render('create-recipe', { title: `Let's Get Cookin' - Create A New Recipe` });
     } catch (error) {
         console.log(error);
     }
@@ -116,38 +120,6 @@ module.exports = {
       res.redirect("/profile");
     }
   },
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // createPost: async (req, res) => {
-  //   try {
-
-  //     const result = await cloudinary.uploader.upload(req.file.path);
-
-  //     await Post.create({
-  //       title: req.body.title,
-  //       image: result.secure_url,
-  //       cloudinaryId: result.public_id,
-  //       caption: req.body.caption,
-  //       likes: 0,
-  //       user: req.user.id,
-  //     });
-  //     console.log("Post has been added!");
-  //     res.redirect("/profile");
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // },
   likePost: async (req, res) => {
     try {
       await Post.findOneAndUpdate(

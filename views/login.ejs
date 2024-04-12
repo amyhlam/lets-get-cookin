@@ -6,13 +6,14 @@
         <a href="/signup" class="col-3 btn btn-primary"> Signup</a> -->
         
         <!-- <div class="row justify-content-center"> -->
-            <div class="col-6 m-5 ">
+            <div class="col-6 col-lg-4 m-5 ">
               <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
               <div class="alert alert-danger"><%= el.msg %></div>
               <% }) %> <% } %> <% if (locals.messages.info) { %> <%
               messages.info.forEach( el => { %>
               <div class="alert alert-info"><%= el.msg %></div>
               <% }) %> <% } %>
+              <h2 class="title-login display-4 fw-bold lh-1 text-center mb-4">LET'S GET COOKIN'</h2>
               <h3 class="text-center mb-4">WELCOME BACK!</h3>
               <form action="/login" method="POST">
                 <div class="mb-3">
@@ -36,12 +37,12 @@
                     name="password"
                   />
                 </div>
-                <button type="submit" class="btn btn-outline-info">Login</button>
+                  <button type="submit" class="btn btn-outline-info">Login</button>
               </form>
             </div>
           <!-- </div> -->
         <!-- <a href="/login"><button type="button" class="btn btn-outline-info m-2 ">Login</button></a> -->
-        <div class="col-6 text-center">
+        <div class="col-8 text-center">
           <p>Don't have an account yet?</p>
           <a href="/signup"><button type="button" class="btn btn-outline-secondary mb-2">Sign Up Here</button></a>
         </div>
