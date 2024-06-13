@@ -16,4 +16,12 @@ module.exports = {
       console.log(err);
     }
   },
+  deleteComment: async (req, res) => {
+    try {
+      await Comment.deleteOne({_id: req.params.commentid});
+      res.redirect("/recipe/"+req.params.recipeid)
+    } catch (err) {
+      console.log(err)
+    }
+  },
 };

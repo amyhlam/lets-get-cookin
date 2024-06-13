@@ -12,6 +12,7 @@
 <div class="col-12 col-md-5">
   <div class="row">
       <h1 class="recipe-name mt-5 pt-5 text-center"><%= recipe.name.toUpperCase() %></h1>
+      <p class="text-center">by<span class="username"> <%= recipe.createdByUsername %></span></p>
       <div class="info row text-center d-flex justify-content-center mt-5">
           <div class="info-box col-12 col-md-3">
               <h5>Servings</h5>
@@ -53,6 +54,41 @@
 <% } else { %>
 <p>No item found.</p>
 <% } %>
+
+<h2>Comments and Reviews</h2>
+
+<div class="comments-container">
+  <ul>
+    <!-- add username of commenter -->
+    <% for(var i=0; i<comments.length; i++) {%>
+      <li class="each-comment">
+        <span class="username"><%= comments[i].createdByUsername%></span> <%= comments[i].comment%>
+        <%if(comments[i].createdById == user.id){ %>
+          <!-- delete own comment button -->
+        <form
+          action="/comment/deleteComment/<%= post.id %>/<%= comments[i]._id %>?_method=DELETE"
+          method="POST"
+
+        >
+          <button class="delete-comment-btn" type="submit">delete</button>
+        </form>
+        <%}%>
+      </li>
+    <% } %>
+  </ul>
+</div>
+
+<div class="add-comment-container mt-5 border">
+  <!-- <h2>Add a comment</h2> -->
+  <form action="/comment/createComment/<%=recipe._id%>" method="POST">
+    <div class="add-comment-input d-flex">
+      <input placeholder="Add a comment..." type="text" class="form-control" id="comment" name="comment">
+      <button class="fa fa-arrow-up" type="submit"></button>
+    </div>
+  </form>
+</div>
+
+
 
 <%if(recipe.user == user){ %>
 <div class="delete-btn">

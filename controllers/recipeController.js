@@ -40,7 +40,8 @@ module.exports = {
       let user = req.user.id;
       let recipeId = req.params.id;
       const recipe = await Recipe.findById(recipeId);
-      res.render('recipe', { title: `Let's Get Cookin' - ${recipe.name}`, recipe, user });
+      const comments = await Comment.find({post: req.params.id}).sort({ createdAt: "asc" }).lean();
+      res.render('recipe', { title: `Let's Get Cookin' - ${recipe.name}`, recipe, user, comments: comments });
     } catch (error) {
         console.log(error);
     }
@@ -76,6 +77,7 @@ module.exports = {
         image: result.secure_url,
         cloudinaryId: result.public_id,
         user: req.user.id,
+        createdByUsername: req.user.userName,
       });
       await newRecipe.save();
       // await Recipe.create({

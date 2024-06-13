@@ -41,8 +41,12 @@ const RecipeSchema = new mongoose.Schema({
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
     },
+    createdByUsername: {
+        type: String,
+        ref: "User"
+    },
 });
 
-// RecipeSchema.index({ name: 'text', summary: 'text' })
+RecipeSchema.index({ name: 'text', summary: 'text', createdByUsername: 'text' })
 
 module.exports = mongoose.model("Recipe", RecipeSchema)

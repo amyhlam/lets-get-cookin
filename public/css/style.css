@@ -22,7 +22,9 @@ a { color: var(--bs-dark); }
   font-size: 3rem;
 }
 
-
+.recipe-name-card {
+  font-size: 1.15rem;
+}
 
 /* homepage */
 
@@ -69,6 +71,10 @@ a { color: var(--bs-dark); }
     font-size: 4.25rem;
   }
 
+  .username {
+    color: rgb(39, 68, 123);
+  }
+
   .info {
     margin: 0;
   }
@@ -87,6 +93,10 @@ a { color: var(--bs-dark); }
     display: flex;
     justify-content: flex-end;
     margin-top: 2rem;
+  }
+
+  .add-comment-container {
+    margin: 0 auto;
   }
 
   /* search */
